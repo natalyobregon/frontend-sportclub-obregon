@@ -34,15 +34,11 @@ body{
 
 }
 
-.logo h1{
+.logo img{
 
-    color:#3A1B72;
+    width:180px;
 
-    margin-bottom:10px;
-
-    border-bottom:3px solid #E6C34A;
-
-    padding-bottom:10px;
+    margin-bottom:20px;
 
 }
 
