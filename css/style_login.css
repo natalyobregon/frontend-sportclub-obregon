@@ -1,6 +1,6 @@
 body{
 
-    background-color:#f4f1fb;
+    background-color:#17004d;
 
     min-height:100vh;
 
@@ -20,11 +20,13 @@ body{
 
     height:400px;
 
-    background:white;
+    background:#efcd54;
 
-    border:2px solid #E6C34A;
+    border:2px solid #000000;
 
     padding:30px;
+
+    box-shadow:8px 8px 20px rgba(0,0,0,0.20);
 
 }
 
@@ -36,7 +38,7 @@ body{
 
 .logo img{
 
-    width:180px;
+    width:280px;
 
     margin-bottom:20px;
 
@@ -98,6 +100,10 @@ button:hover{
 
     background-color:#3A1B72;
 
+    transform:scale(1.03);
+
+    transition:0.3s;
+
 }
 
 .links{
@@ -121,6 +127,15 @@ button:hover{
 }
 .links a:hover{
 
-    color:#E6C34A;
+    color:#ffffff;
+
+}
+
+input:focus,
+select:focus{
+
+    outline:none;
+
+    border:2px solid #5A2CA0;
 
 }
