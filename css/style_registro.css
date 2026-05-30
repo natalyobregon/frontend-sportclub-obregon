@@ -1,6 +1,6 @@
 body{
 
-    background-color:#17004d;
+    background-color:#F2B705;
 
     min-height:100vh;
 
@@ -10,7 +10,7 @@ body{
 
     align-items:center;
 
-    font-family:'Segoe UI', Arial, sans-serif;
+    font-family: Arial, sans-serif;
 
     margin:0;
 
@@ -20,11 +20,11 @@ body{
 
     width:700px;
 
-    background:#efcd54;
+    background:#ffffff;
 
-    border:2px solid #000000;
+    border:5px solid #2E1A47;
 
-    border-radius:0;
+    border-radius:10px;
 
     padding:30px;
 
@@ -52,7 +52,7 @@ body{
 
 .logo h2{
 
-    color:#000000;
+    color:#2E1A47;
 
     font-size:28px;
 
@@ -87,6 +87,8 @@ label{
     font-size:17px;
 
     font-weight:600;
+
+    color:#2E1A47;
 
 }
 
