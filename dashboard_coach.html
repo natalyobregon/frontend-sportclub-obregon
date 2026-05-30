@@ -1,86 +1,134 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-    <title>
-        Dashboard Coach
-    </title>
-
-    <link
-        rel="stylesheet"
-        href="./css/style_dashboard.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Coach - Club Deportivo</title>
+    <link rel="stylesheet" href="./css/style_dashboard.css">
 </head>
-
 <body>
 
-    <header class="dashboard-header">
-
-        <h1>
-            Bienvenido Coach
-        </h1>
-
-    </header>
+        <header class="dashboard-header">
+            <div class="logo">
+                <img src="./img/logo.png" alt="Logo SportClub">
+            </div>
+            <nav class="dashboard-nav">
+                <a href="#">Inicio</a>
+                <a href="#">Alumnos</a>
+                <a href="#">Clases</a>
+                <a href="#">Horarios</a>
+                <a href="Login.html" style="color: #c5221f;">Cerrar Sesión</a>
+            </nav>
+        </header>
 
     <main class="dashboard-contenido">
 
-        <div class="dashboard-card">
+        <section class="dashboard-card">
+            <h2>¡Bienvenida, Ana María!</h2>
+        </section>
 
-            <h2>
-                Mis Alumnos
-            </h2>
+        <section class="clases-grid">
+            <div class="clase-card resumen-card">
+                <h3>Total Alumnos</h3>
+                <p class="numero-destacado">24</p>
+            </div>
+            <div class="clase-card resumen-card">
+                <h3>Clases Activas</h3>
+                <p class="numero-destacado">6</p>
+            </div>
+            <div class="clase-card resumen-card">
+                <h3>Horas Semanales</h3>
+                <p class="numero-destacado">18 hrs</p>
+            </div>
+        </section>
 
-            <p>
-                Visualiza los alumnos asignados.
-            </p>
+        <section class="dashboard-card">
+            <h2>Lista de Alumnos</h2>
+            <div class="tabla-contenedor">
+                <table class="dashboard-tabla">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Clase Asignada</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Andrés Silva</td>
+                            <td>andres@email.com</td>
+                            <td>Musculación</td>
+                        </tr>
+                        <tr>
+                            <td>Camila Soto</td>
+                            <td>camila@email.com</td>
+                            <td>Yoga</td>
+                        </tr>
+                        <tr>
+                            <td>Diego Flores</td>
+                            <td>diego@email.com</td>
+                            <td>Funcional</td>
+                        </tr>
+                        <tr>
+                            <td>Elena Muñoz</td>
+                            <td>elena@email.com</td>
+                            <td>Pilates</td>
+                        </tr>
+                        <tr>
+                            <td>Felipe Reyes</td>
+                            <td>felipe@email.com</td>
+                            <td>Funcional</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-        </div>
+        <section class="dashboard-card">
+            <h2>Clases Asignadas Hoy</h2>
+            <ul class="lista-reservas">
+                <li><strong>Musculación Avanzado</strong> - Lunes - 09:00</li>
+                <li><strong>Funcional Principiantes</strong> - Lunes - 11:00</li>
+                <li><strong>Pilates General</strong> - Lunes - 18:00</li>
+            </ul>
+        </section>
 
-        <div class="dashboard-card">
-
-            <h2>
-                Rutinas
-            </h2>
-
-            <p>
-                Gestiona planes de entrenamiento.
-            </p>
-
-        </div>
-
-        <div class="dashboard-card">
-
-            <h2>
-                Horarios
-            </h2>
-
-            <p>
-                Revisa las clases programadas.
-            </p>
-
-        </div>
-
-        <div class="dashboard-card">
-
-            <h2>
-                Seguimiento
-            </h2>
-
-            <p>
-                Controla el progreso de los alumnos.
-            </p>
-
-        </div>
+        <section class="dashboard-card">
+            <h2>Cronograma Semanal de Clases</h2>
+            <div class="clases-grid grid-5">
+                <div class="clase-card">
+                    <h4>Funcional</h4>
+                    <p>Lunes</p>
+                    <p><strong>19:00</strong></p>
+                    <small>15 Alumnos</small>
+                </div>
+                <div class="clase-card">
+                    <h4>Musculación</h4>
+                    <p>Miércoles</p>
+                    <p><strong>18:00</strong></p>
+                    <small>20 Alumnos</small>
+                </div>
+                <div class="clase-card">
+                    <h4>Yoga</h4>
+                    <p>Viernes</p>
+                    <p><strong>20:00</strong></p>
+                    <small>12 Alumnos</small>
+                </div>
+                <div class="clase-card">
+                    <h4>Funcional</h4>
+                    <p>Sábado</p>
+                    <p><strong>10:00</strong></p>
+                    <small>18 Alumnos</small>
+                </div>
+                <div class="clase-card">
+                    <h4>Pilates</h4>
+                    <p>Sábado</p>
+                    <p><strong>11:30</strong></p>
+                    <small>22 Alumnos</small>
+                </div>
+            </div>
+        </section>
 
     </main>
-
 </body>
-
 </html>

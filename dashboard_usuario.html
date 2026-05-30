@@ -1,86 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-    <title>
-        Dashboard Usuario
-    </title>
-
-    <link
-        rel="stylesheet"
-        href="./css/style_dashboard.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Usuario - Club Deportivo</title>
+    <link rel="stylesheet" href="./css/style_dashboard.css">
 </head>
-
 <body>
 
-    <header class="dashboard-header">
-
-        <h1>
-            Bienvenido a SportClub
-        </h1>
-
-    </header>
+        <header class="dashboard-header">
+            <div class="logo">
+                <img src="./img/logo.png" alt="Logo SportClub">
+            </div>
+            <nav class="dashboard-nav">
+                <a href="#">Inicio</a>
+                <a href="#">Mis Reservas</a>
+                <a href="#">Clases</a>
+                <a href="#">Mi Perfil</a>
+                <a href="Login.html" style="color: #c5221f;">Cerrar Sesión</a>
+            </nav>
+        </header>
 
     <main class="dashboard-contenido">
 
-    <div class="dashboard-card">
+        <section class="dashboard-card">
+            <h2>¡Bienvenido, Javier!</h2>
+            <p>Continúa entrenando para alcanzar tus metas.</p>
+        </section>
 
-        <h2>
-            Mi Perfil
-        </h2>
+        <section class="dashboard-card">
+            <h2>Mis Reservas</h2>
+            <ul class="lista-reservas">
+                <li><strong>Yoga</strong> - Lunes - 18:00 - Coach Ana</li>
+                <li><strong>Funcional</strong> - Martes - 19:00 - Coach Pedro</li>
+                <li><strong>Musculación</strong> - Miércoles - 20:00 - Coach Luis</li>
+                <li><strong>Pilates</strong> - Jueves - 17:00 - Coach María</li>
+                <li><strong>Cardio</strong> - Viernes - 16:00 - Coach Diego</li>
+            </ul>
+        </section>
 
-        <p>
-            Revisa y actualiza tu información personal.
-        </p>
+        <section class="dashboard-card">
+            <h2>Clases Disponibles</h2>
+            <div class="clases-grid">
+                <div class="clase-card">
+                    <div class="clase-icono"></div>
+                    <h3>Yoga</h3>
+                    <p>Mejora flexibilidad y concentración.</p>
+                    <button>Reservar</button>
+                </div>
+                <div class="clase-card">
+                    <div class="clase-icono"></div>
+                    <h3>Musculación</h3>
+                    <p>Entrenamiento de alta intensidad.</p>
+                    <button>Inscribirse</button>
+                </div>
+                <div class="clase-card">
+                    <div class="clase-icono"></div>
+                    <h3>Funcional</h3>
+                    <p>Fuerza y resistencia general.</p>
+                    <button>Ver más</button>
+                </div>
+            </div>
+        </section>
 
-    </div>
+        <section class="dashboard-card">
+            <h2>Mi Perfil Rápido</h2>
+            <p><strong>Nombre:</strong> Javier Morales</p>
+            <p><strong>Correo:</strong> javier@email.com</p>
+            <p><strong>Deporte favorito:</strong> Funcional</p>
+        </section>
 
-    <div class="dashboard-card">
-
-        <h2>
-            Mi Plan
-        </h2>
-
-        <p>
-            Consulta el plan deportivo que tienes contratado.
-        </p>
-
-    </div>
-
-    <div class="dashboard-card">
-
-        <h2>
-            Actividades
-        </h2>
-
-        <p>
-            Explora las actividades disponibles del club.
-        </p>
-
-    </div>
-
-    <div class="dashboard-card">
-
-        <h2>
-            Objetivos
-        </h2>
-
-        <p>
-            Haz seguimiento de tus metas deportivas.
-        </p>
-
-    </div>
-
-</main>
-
+    </main>
 </body>
-
 </html>

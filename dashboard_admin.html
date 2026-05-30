@@ -1,86 +1,132 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-    <title>
-        Dashboard Administrador
-    </title>
-
-    <link
-        rel="stylesheet"
-        href="./css/style_dashboard.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Administrador - Club Deportivo</title>
+    <link rel="stylesheet" href="./css/style_dashboard.css">
 </head>
-
 <body>
 
-    <header class="dashboard-header">
-
-        <h1>
-            Bienvenido Administrador
-        </h1>
-
-    </header>
+        <header class="dashboard-header">
+            <div class="logo">
+                <img src="./img/logo.png" alt="Logo SportClub">
+            </div>
+            <nav class="dashboard-nav">
+                <a href="#">Usuarios</a>
+                <a href="#">Reportes</a>
+                <a href="#">Configuración</a>
+                <a href="#">Clases</a>
+                <a href="Login.html" style="color: #c5221f;">Cerrar Sesión</a>
+            </nav>
+        </header>
 
     <main class="dashboard-contenido">
 
-        <div class="dashboard-card">
+        <section class="dashboard-card">
+            <h2>¡Bienvenido, Juan!</h2>
+        </section>
 
-            <h2>
-                Usuarios
-            </h2>
+        <section class="clases-grid">
+            <div class="clase-card resumen-card">
+                <h3>Total Usuarios</h3>
+                <p class="numero-destacado">1,250</p>
+            </div>
+            <div class="clase-card resumen-card">
+                <h3>Total Coaches</h3>
+                <p class="numero-destacado">15</p>
+            </div>
+            <div class="clase-card resumen-card">
+                <h3>Total Clases</h3>
+                <p class="numero-destacado">8</p>
+            </div>
+        </section>
 
-            <p>
-                Gestiona los usuarios registrados en el sistema.
-            </p>
+        <section class="dashboard-card">
+            <h2>Control de Usuarios</h2>
+            <div class="tabla-contenedor">
+                <table class="dashboard-tabla">
+                    <thead>
+                        <tr>
+                            <th>Rut</th>
+                            <th>Nombre Completo</th>
+                            <th>Rol</th>
+                            <th>Estado</th>
+                            <th>Fecha de Registro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12.345.678-9</td>
+                            <td>Juan Pérez Gómez</td>
+                            <td>Administrador</td>
+                            <td><span class="estado activo">Activo</span></td>
+                            <td>12/01/2025</td>
+                        </tr>
+                        <tr>
+                            <td>18.765.432-1</td>
+                            <td>Ana María Silva</td>
+                            <td>Coach</td>
+                            <td><span class="estado activo">Activo</span></td>
+                            <td>25/02/2025</td>
+                        </tr>
+                        <tr>
+                            <td>20.123.456-K</td>
+                            <td>Javier Morales Cid</td>
+                            <td>Usuario</td>
+                            <td><span class="estado activo">Activo</span></td>
+                            <td>10/03/2025</td>
+                        </tr>
+                        <tr>
+                            <td>15.987.654-3</td>
+                            <td>Pedro Urrutia Jara</td>
+                            <td>Coach</td>
+                            <td><span class="estado inactivo">Inactivo</span></td>
+                            <td>05/04/2025</td>
+                        </tr>
+                        <tr>
+                            <td>17.456.789-0</td>
+                            <td>María González Rojas</td>
+                            <td>Usuario</td>
+                            <td><span class="estado activo">Activo</span></td>
+                            <td>18/05/2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-        </div>
+        <section class="dashboard-card">
+            <h2>Panel de Reportes e Indicadores</h2>
+            <div class="clases-grid">
+                <div class="clase-card reporte-item">
+                    <h4>Clases Más Solicitadas</h4>
+                    <ol>
+                        <li>Musculación (45%)</li>
+                        <li>Funcional (35%)</li>
+                        <li>Yoga (20%)</li>
+                    </ol>
+                </div>
+                <div class="clase-card reporte-item">
+                    <h4>Usuarios Activos</h4>
+                    <p><strong>850</strong> de este mes</p>
+                </div>
+                <div class="clase-card reporte-item">
+                    <h4>Reservas del Día</h4>
+                    <p><strong>142</strong> reservas hoy</p>
+                </div>
+            </div>
+        </section>
 
-        <div class="dashboard-card">
-
-            <h2>
-                Planes
-            </h2>
-
-            <p>
-                Administra los planes disponibles del club.
-            </p>
-
-        </div>
-
-        <div class="dashboard-card">
-
-            <h2>
-                Actividades
-            </h2>
-
-            <p>
-                Gestiona las actividades deportivas del club.
-            </p>
-
-        </div>
-
-        <div class="dashboard-card">
-
-            <h2>
-                Reportes
-            </h2>
-
-            <p>
-                Consulta estadísticas e información general.
-            </p>
-
-        </div>
+        <section class="dashboard-card">
+            <h2>Configuración Rápida</h2>
+            <div class="botones-config">
+                <button class="btn-config">Crear Usuario</button>
+                <button class="btn-config">Editar Sistema</button>
+                <button class="btn-config">Configuración</button>
+            </div>
+        </section>
 
     </main>
-
 </body>
-
 </html>
