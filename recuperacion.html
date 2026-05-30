@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Recuperar Contraseña</title>
+
+<link rel="stylesheet" href="./css/style_login.css">
+
+</head>
+
+<body>
+
+<main class="contenedor">
+
+    <header class="logo">
+        <img src="./img/logo.png" alt="Logo empresa">
+    </header>
+
+    <h2>Recuperar Contraseña</h2>
+
+    <div class="mensaje-exito"></div>
+
+    <div class="campo">
+        <label for="correo">Correo</label>
+        <input type="email" id="correo" placeholder="Ingresa tu correo">
+    </div>
+
+    <a href="#" class="btn-login" onclick="mostrarMensaje()">
+        Enviar
+    </a>
+
+    <div class="links">
+        <a href="login.html">Volver al Login</a>
+    </div>
+
+</main>
+
+<script>
+function mostrarMensaje(){
+    document.querySelector(".mensaje-exito").innerText =
+    "Se ha enviado un enlace de recuperación al correo ingresado.";
+}
+</script>
+
+</body>
+
+</html>

@@ -18,8 +18,6 @@ body{
 
     width:350px;
 
-    height:400px;
-
     background:#ffffff;
 
     border:5px solid #2E1A47;
@@ -144,4 +142,78 @@ select:focus{
 
     border:3px solid #2E1A47
 
+}
+
+.btn{
+
+    display:block;
+    
+    width:100%;
+
+    padding:12px;
+
+    background-color:#2E1A47;
+
+    color:white;
+
+    text-align:center;
+
+    border-radius:6px;
+
+    text-decoration:none;
+
+}
+
+.btn-login{
+
+    display:block;
+
+    width: 100%;
+
+    box-sizing:border-box;
+
+    padding:12px;
+
+    background-color:#2E1A47;
+
+    color:white;
+
+    text-align:center;
+
+    border-radius:6px;
+
+    text-decoration:none;
+
+    margin-top:10px;
+
+}
+
+.btn-login:hover{
+
+    background-color:#513da3;
+
+    transform:scale(1.03);
+
+    transition:0.3s;
+
+}
+
+.mensaje-error{
+
+    color:red;
+
+    text-align:center;
+
+    margin-bottom:10px;
+
+}
+
+.mensaje-exito{
+
+    color:green;
+
+    text-align:center;
+
+    margin-bottom:10px;
+    
 }
