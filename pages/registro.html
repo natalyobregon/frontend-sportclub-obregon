@@ -13,7 +13,8 @@
 
     <link
         rel="stylesheet"
-        href="./css/style_registro.css">
+        content="stylesheet"
+        href="../css/style_registro.css">
 
 </head>
 
@@ -24,7 +25,7 @@
         <header class="logo">
 
             <img
-                src="./img/logo.png"
+                src="../assets/img/logo.png"
                 alt="Logo empresa">
 
             <h2>
@@ -32,6 +33,9 @@
             </h2>
 
         </header>
+
+        <div class="mensaje-error">Las contraseñas no coinciden</div>
+        <div class="mensaje-exito">Usuario registrado correctamente</div>
 
         <div class="formulario">
 
@@ -83,6 +87,19 @@
                     type="password"
                     id="password"
                     placeholder="Crea una contraseña">
+
+            </div>
+
+            <div class="campo">
+
+                <label for="confirmar-password">
+                    Confirmar contraseña
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmar-password"
+                    placeholder="Repite tu contraseña">
 
             </div>
 

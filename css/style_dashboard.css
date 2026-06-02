@@ -5,11 +5,11 @@ body {
     font-family: Arial, sans-serif;
 
     color: #333;
-    
+
     background: linear-gradient(
         rgba(255, 255, 255, 0.45), 
         rgba(255, 255, 255, 0.45)
-    ), url("../img/gym2.jpg");
+    ), url("../assets/img/gym2.jpg");
 
     background-size: cover;
 
@@ -45,7 +45,7 @@ body {
 
 }
 
-.dashboard-header.logo img {
+.dashboard-header .logo img {
 
     height: 45px; 
 
@@ -202,7 +202,9 @@ body {
     justify-content: center;
 
 }
-.clase-card h3, .clase-card h4 {
+
+.clase-card h3, 
+.clase-card h4 {
 
     color: #2E1A47;
 
@@ -220,7 +222,8 @@ body {
 
 }
 
-.clase-card button, .btn-config {
+.clase-card button, 
+.btn-config {
 
     margin-top: auto;
 
@@ -244,7 +247,8 @@ body {
 
 }
 
-.clase-card button:hover, .btn-config:hover {
+.clase-card button:hover, 
+.btn-config:hover {
 
     background: #F2B705;
 
@@ -397,9 +401,177 @@ body {
 }
 
 .clase-icono { 
-    
-    font-size: 30px; 
-    
-    margin-bottom: 10px; 
 
+    font-size: 30px; 
+
+    margin-bottom: 10px;
+
+}
+
+.rol-usuario .dashboard-header {
+
+    border-bottom: 4px solid #0056b3; 
+
+}
+
+.rol-usuario .dashboard-header h1 {
+
+    color: #002d62;
+
+}
+
+.rol-usuario .dashboard-nav a {
+
+    color: #002d62;
+
+}
+
+.rol-usuario .dashboard-nav a:hover {
+
+    color: #0056b3;
+
+    background: rgba(0, 45, 98, 0.05);
+
+}
+
+.rol-usuario .clase-card button, 
+.rol-usuario .btn-config,
+.rol-usuario .dashboard-tabla th,
+.rol-usuario .resumen-card {
+
+    background-color: #002d62;
+
+}
+
+.rol-usuario .clase-card button:hover, 
+.rol-usuario .btn-config:hover {
+
+    background: #0056b3;
+
+    color: white;
+
+}
+
+.rol-usuario .numero-destacado {
+
+    color: #66b2ff !important; 
+
+}
+
+.rol-usuario .lista-reservas li {
+
+    border-left: 4px solid #002d62;
+
+}
+
+.rol-coach .dashboard-header {
+
+    border-bottom: 4px solid #28a745;
+
+}
+
+.rol-coach .dashboard-header h1 {
+
+    color: #1e4620; 
+
+}
+
+.rol-coach .dashboard-nav a {
+
+    color: #1e4620;
+
+}
+
+.rol-coach .dashboard-nav a:hover {
+
+    color: #28a745;
+
+    background: rgba(30, 70, 32, 0.05);
+
+}
+
+.rol-coach .clase-card button, 
+.rol-coach .btn-config,
+.rol-coach .dashboard-tabla th,
+.rol-coach .resumen-card {
+
+    background-color: #1e4620;
+
+}
+
+.rol-coach .clase-card button:hover, 
+.rol-coach .btn-config:hover {
+
+    background: #28a745;
+
+    color: white;
+
+}
+
+.rol-coach .numero-destacado {
+
+    color: #85ea9d !important; 
+
+}
+
+.rol-coach .lista-reservas li {
+
+    border-left: 4px solid #1e4620;
+
+}
+
+.rol-admin .dashboard-header {
+
+    border-bottom: 4px solid #c5221f; 
+
+}
+
+.rol-admin .dashboard-header h1 {
+
+    color: #5c0f0d; 
+
+}
+
+.rol-admin .dashboard-nav a {
+
+    color: #5c0f0d;
+
+}
+
+.rol-admin .dashboard-nav a:hover {
+
+    color: #c5221f;
+
+    background: rgba(92, 15, 13, 0.05);
+
+}
+
+.rol-admin .clase-card button, 
+.rol-admin .btn-config,
+.rol-admin .dashboard-tabla th,
+.rol-admin .resumen-card {
+
+    background-color: #5c0f0d;
+
+}
+
+.rol-admin .clase-card button:hover, 
+.rol-admin .btn-config:hover {
+
+    background: #c5221f;
+
+    color: white;
+
+}
+
+.rol-admin .numero-destacado {
+
+    color: #ff6b6b !important; 
+
+}
+
+.rol-admin .lista-reservas li {
+
+    border-left: 4px solid #5c0f0d;
+    
 }

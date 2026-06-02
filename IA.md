@@ -1,25 +1,50 @@
-# Documentación de uso de IA
+# Documentación de Uso de Inteligencia Artificial
 
-Herramienta utilizada:
-ChatGPT
+## Herramientas utilizadas
 
-Fecha:
-25/05/2026
+* ChatGPT
+* Gemini
 
-Prompt utilizado:
-"Necesito ayuda paso a paso para desarrollar una página de Login utilizando HTML5 y CSS3 a partir de una plantilla entregada por el profesor, explicando cada parte del proceso."
+## Fecha de desarrollo
 
-Resultado generado:
-Se obtuvo orientación para construir una página Login con estructura HTML y estilos CSS. La ayuda incluyó organización de archivos, creación de contenedor principal, incorporación del formulario, aplicación de estilos visuales y explicación de conceptos utilizados.
+Mayo de 2026
 
-Modificaciones realizadas:
-- Se decidió crear una página independiente llamada Login.html en lugar de modificar el index original del repositorio.
-- Se adaptó la estructura HTML para incluir logo, título, campos de correo y contraseña, botón y enlaces.
-- Se ajustaron estilos CSS para centrar el contenido y aplicar propiedades como margin, padding y border.
-- Se modificó la paleta de colores propuesta inicialmente para acercarla a los colores del logo de la empresa.
-- Se realizaron cambios visuales en bordes, espaciados y presentación final del formulario.
+## Prompts utilizados
 
-Justificación:
-La IA fue utilizada como herramienta de apoyo para comprender cómo construir una interfaz de Login utilizando HTML y CSS. Durante el proceso se solicitó explicación paso a paso sobre la función de cada etiqueta y propiedad utilizada, incluyendo elementos como main, label, input, padding, border y flexbox.
+### Prompt 1
 
-Además del código base entregado por la IA como ejemplo, se realizaron decisiones de adaptación durante el desarrollo, especialmente en la organización del proyecto y en el ajuste de colores para alinearlos con la identidad visual del logo. El objetivo del uso de IA fue apoyar el aprendizaje y facilitar la implementación técnica, manteniendo revisión y comprensión del resultado final antes de incorporarlo al proyecto.
+ Necesito ayuda paso a paso para desarrollar una página de Login utilizando HTML5 y CSS3 a partir de una plantilla entregada por el profesor, explicando cada parte del proceso.
+
+### Prompt 2
+
+ ¿Cómo puedo estructurar un sistema de alertas visuales integrado en la interfaz para el registro y la recuperación de contraseñas sin usar la función alert() de JavaScript?
+
+### Prompt 3
+
+ Tengo un único archivo CSS para tres dashboards de diferentes roles. ¿Cómo puedo aplicar estilos específicos y colores de identidad para cada perfil usando clases en el body sin afectar el diseño general?
+
+## Resultado obtenido
+
+Las herramientas de inteligencia artificial fueron utilizadas como apoyo durante el desarrollo del proyecto para resolver dudas técnicas y comprender mejor distintos conceptos relacionados con HTML y CSS.
+
+A través de estas consultas se obtuvieron ejemplos de código, recomendaciones para organizar los archivos del proyecto y sugerencias para construir interfaces más ordenadas y fáciles de mantener. También se recibieron orientaciones sobre el uso de Flexbox y Grid para la distribución de elementos, además de propuestas para diferenciar visualmente los distintos perfiles de usuario dentro del sistema.
+
+## Modificaciones realizadas
+
+A partir de las sugerencias entregadas por las herramientas de IA, se realizaron diversas adaptaciones para ajustarlas a los requerimientos específicos del proyecto:
+
+* Se desarrollaron páginas independientes para Login, Registro y Recuperación de Contraseña, manteniendo una estructura organizada y fácil de navegar.
+* Se modificó la paleta de colores propuesta inicialmente para utilizar los colores corporativos de SportClub, empleando el morado `#2E1A47` y el amarillo `#F2B705` como colores principales.
+* Se incorporaron mensajes visuales de éxito y error dentro de los formularios, evitando el uso de ventanas emergentes y respetando las indicaciones de la pauta de evaluación.
+* Se implementó un sistema de estilos basado en clases aplicadas al elemento `body` para diferenciar los dashboards según el rol del usuario, permitiendo reutilizar un único archivo CSS.
+* Se ajustaron espacios, tamaños, tipografías y efectos visuales para mejorar la presentación general y lograr una interfaz más atractiva y consistente.
+
+## Justificación del uso de IA
+
+El uso de herramientas de inteligencia artificial tuvo como objetivo apoyar el aprendizaje y facilitar la resolución de problemas específicos durante el desarrollo del proyecto. En ningún momento se utilizó para generar el trabajo completo de forma automática, sino como una fuente de orientación y consulta técnica.
+
+Durante el proceso se solicitaron explicaciones detalladas sobre conceptos, etiquetas y propiedades utilizadas en el código, con el fin de comprender su funcionamiento antes de aplicarlas. Esto permitió reforzar conocimientos relacionados con la maquetación web, la organización de estilos y la construcción de interfaces de usuario.
+
+Las decisiones finales respecto a la estructura del sistema, la organización de las páginas, el diseño visual y la implementación de las funcionalidades fueron tomadas personalmente, utilizando las recomendaciones de la IA como apoyo para mejorar la calidad del desarrollo.
+
+En conclusión, la inteligencia artificial fue utilizada como una herramienta de acompañamiento y aprendizaje, contribuyendo a resolver dudas, comprender mejores prácticas y optimizar el proceso de desarrollo sin reemplazar el trabajo ni la toma de decisiones del estudiante.
