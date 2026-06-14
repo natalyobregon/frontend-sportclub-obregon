@@ -5,128 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Administrador - Club Deportivo</title>
     <link rel="stylesheet" href="../css/style_dashboard.css">
-</head>
-<body class="rol-admin">   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <header class="dashboard-header">
+    <script>
+        // Bloque de seguridad: Validar sesión activa antes de cargar el contenido
+        const token = localStorage.getItem("token");
+        const user = localStorage.getItem("user");
+
+        if (!token || !user) {
+            window.location.href = "login.html";
+        }
+    </script>
+</head>
+<body class="rol-admin bg-light text-dark">   
+
+    <header class="dashboard-header bg-dark text-white p-3 d-flex justify-content-between align-items-center">
         <div class="logo">
-            <img src="../assets/img/logo.png" alt="Logo SportClub">
+            <img src="../assets/img/logo.png" alt="Logo SportClub" style="max-height: 50px;">
         </div>
         <nav class="dashboard-nav">
-            <a href="#">Usuarios</a>
-            <a href="#">Reportes</a>
-            <a href="#">Configuración</a>
-            <a href="#">Clases</a>
-            <a href="login.html" style="color: #c5221f;">Cerrar Sesión</a>
+            <a href="#" class="text-white me-3 text-decoration-none fw-bold">Usuarios</a>
+            <a href="#" class="text-white me-3 text-decoration-none">Reportes</a>
+            <a href="login.html" class="fw-bold" style="color: #c5221f; text-decoration: none;" onclick="localStorage.clear();">Cerrar Sesión</a>
         </nav>
     </header>
 
-    <main class="dashboard-contenido">
+    <main class="container my-4">
 
-        <section class="dashboard-card">
-            <h2>¡Bienvenido, Juan!</h2>
+        <div class="mensaje-error alert alert-danger" style="display: none;" role="alert"></div>
+        <div class="mensaje-exito alert alert-success" style="display: none;" role="alert"></div>
+
+        <section class="card p-4 mb-4 shadow-sm">
+            <h2>Módulo Gestión de Usuarios</h2>
+            <p class="text-muted">Administra los usuarios del sistema</p>
         </section>
 
-        <section class="clases-grid">
-            <div class="clase-card resumen-card">
-                <h3>Total Usuarios</h3>
-                <p class="numero-destacado">1,250</p>
-            </div>
-            <div class="clase-card resumen-card">
-                <h3>Total Coaches</h3>
-                <p class="numero-destacado">15</p>
-            </div>
-            <div class="clase-card resumen-card">
-                <h3>Total Clases</h3>
-                <p class="numero-destacado">8</p>
-            </div>
+        <section class="card p-4 mb-4 shadow-sm">
+            <h3 id="formTitulo">Formulario Usuario (Crear / Editar)</h3>
+            <form id="userForm" class="row g-3">
+                <input type="hidden" id="userId">
+
+                <div class="col-md-6">
+                    <label for="adminNombre" class="form-label">Nombre Completo *</label>
+                    <input type="text" class="form-control" id="adminNombre" placeholder="Ej. Juan Pérez">
+                </div>
+                <div class="col-md-6">
+                    <label for="adminCorreo" class="form-label">Email *</label>
+                    <input type="email" class="form-control" id="adminCorreo" placeholder="juan@correo.com">
+                </div>
+                <div class="col-md-6">
+                    <label for="adminRol" class="form-label">Rol *</label>
+                    <select id="adminRol" class="form-select">
+                        <option value="user">user</option>
+                        <option value="coach">coach</option>
+                        <option value="admin">admin</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="adminPassword" class="form-label">Contraseña (Mínimo 8 caracteres)</label>
+                    <input type="password" class="form-control" id="adminPassword" placeholder="Solo para nuevos usuarios u opcional">
+                </div>
+                <div class="col-12 mt-3">
+                    <button type="submit" class="btn btn-primary">💾 Guardar Usuario</button>
+                    <button type="button" class="btn btn-secondary" onclick="document.getElementById('userForm').reset(); document.getElementById('userId').value='';">Cancelar</button>
+                </div>
+            </form>
         </section>
 
-        <section class="dashboard-card">
-            <h2>Control de Usuarios</h2>
-            <div class="tabla-contenedor">
-                <table class="dashboard-tabla">
-                    <thead>
+        <section class="card p-4 shadow-sm">
+            <h2>Lista de Usuarios</h2>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover align-middle mt-3">
+                    <thead class="table-dark">
                         <tr>
-                            <th>Rut</th>
+                            <th>ID</th>
                             <th>Nombre Completo</th>
+                            <th>Email</th>
                             <th>Rol</th>
-                            <th>Estado</th>
                             <th>Fecha de Registro</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>12.345.678-9</td>
-                            <td>Juan Pérez Gómez</td>
-                            <td>Administrador</td>
-                            <td><span class="estado activo">Activo</span></td>
-                            <td>12/01/2025</td>
-                        </tr>
-                        <tr>
-                            <td>18.765.432-1</td>
-                            <td>Ana María Silva</td>
-                            <td>Coach</td>
-                            <td><span class="estado activo">Activo</span></td>
-                            <td>25/02/2025</td>
-                        </tr>
-                        <tr>
-                            <td>20.123.456-K</td>
-                            <td>Javier Morales Cid</td>
-                            <td>Usuario</td>
-                            <td><span class="estado activo">Activo</span></td>
-                            <td>10/03/2025</td>
-                        </tr>
-                        <tr>
-                            <td>15.987.654-3</td>
-                            <td>Pedro Urrutia Jara</td>
-                            <td>Coach</td>
-                            <td><span class="estado inactivo">Inactivo</span></td>
-                            <td>05/04/2025</td>
-                        </tr>
-                        <tr>
-                            <td>17.456.789-0</td>
-                            <td>María González Rojas</td>
-                            <td>Usuario</td>
-                            <td><span class="estado activo">Activo</span></td>
-                            <td>18/05/2025</td>
-                        </tr>
-                    </tbody>
+                    <tbody id="tablaUsuariosBody"></tbody>
                 </table>
             </div>
         </section>
 
-        <section class="dashboard-card">
-            <h2>Panel de Reportes e Indicadores</h2>
-            <div class="clases-grid">
-                <div class="clase-card reporte-item">
-                    <h4>Clases Más Solicitadas</h4>
-                    <ol>
-                        <li>Musculación (45%)</li>
-                        <li>Funcional (35%)</li>
-                        <li>Yoga (20%)</li>
-                    </ol>
-                </div>
-                <div class="clase-card reporte-item">
-                    <h4>Usuarios Activos</h4>
-                    <p><strong>850</strong> de este mes</p>
-                </div>
-                <div class="clase-card reporte-item">
-                    <h4>Reservas del Día</h4>
-                    <p><strong>142</strong> reservas hoy</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="dashboard-card">
-            <h2>Configuración Rápida</h2>
-            <div class="botones-config">
-                <button class="btn-config">Crear Usuario</button>
-                <button class="btn-config">Editar Sistema</button>
-                <button class="btn-config">Configuración</button>
-            </div>
-        </section>
-
     </main>
+
+    <script src="../js/admin.js"></script>
 </body>
 </html>
