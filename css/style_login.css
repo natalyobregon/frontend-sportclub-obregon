@@ -251,56 +251,8 @@ select:focus {
 
 }
 
-.accesos-rapidos {
+.is-invalid {
 
-    margin-top: 25px;
-
-    padding-top: 15px;
-
-    border-top: 1px dashed #cccccc;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 8px;
-
-    text-align: center;
-
-}
-
-.accesos-rapidos a {
-
-    text-decoration: none;
-
-    color: #2E1A47;
-
-    font-size: 13px;
-
-    font-weight: 500;
-
-    transition: color 0.2s ease, text-decoration 0.2s ease;
-
-}
-
-.accesos-rapidos a:hover {
-
-    color: #513da3;
-
-    text-decoration: underline;
-
-}
-
-.texto-demo {
-
-    font-size: 11px;
-
-    color: #888;
-
-    text-transform: uppercase;
-
-    letter-spacing: 1px;
-
-    margin-bottom: 4px;
+    border: 2px solid #dc3545 !important;
 
 }

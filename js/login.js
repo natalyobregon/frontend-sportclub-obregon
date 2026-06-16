@@ -35,6 +35,18 @@ loginForm.addEventListener("submit", async (event) => {
         return;
     }
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(emailValue)) {
+
+        errorMessage.textContent = "Ingresa un correo electrónico válido.";
+        errorMessage.style.display = "block";
+
+        emailInput.classList.add("is-invalid");
+
+        return;
+    }
+
     try {
         // --- ESTRUCTURA DE PETICIÓN SOLICITADA ---
         const response = await fetch('http://localhost:3000/api/auth/login', {

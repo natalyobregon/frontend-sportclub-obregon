@@ -1,8 +1,8 @@
 // 1. Capturar elementos del DOM
 const tablaUsuariosBody = document.getElementById("tablaUsuariosBody");
 const userForm = document.getElementById("userForm");
-const errorDiv = document.querySelector(".mensaje-error");
-const exitoDiv = document.querySelector(".mensaje-exito");
+const errorDiv = document.getElementById("mensajeError"); 
+const exitoDiv = document.getElementById("mensajeExito"); 
 
 // Campos del formulario Crear/Editar
 const userIdInput = document.getElementById("userId");
@@ -20,6 +20,14 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "login.html";
         return;
     }
+
+    const usuarioSesion = JSON.parse(localStorage.getItem("user"));
+
+    if (!usuarioSesion || usuarioSesion.role !== "admin") {
+        window.location.href = "login.html";
+        return;
+    }
+
     listarUsuarios();
 });
 
@@ -35,17 +43,14 @@ async function listarUsuarios() {
         });
 
         const data = await response.json();
+        console.log("STATUS:", response.status);
+        console.log("Respuesta API:", data);
 
         if (response.ok && data.ok === true) {
             tablaUsuariosBody.innerHTML = ""; // Limpiar tabla previa
 
             data.data.forEach(usuario => {
                 const tr = document.createElement("tr");
-
-                // Configurar color de los Badges según el rol (Requisito UI de la rúbrica)
-                let badgeClass = "bg-success"; 
-                if (usuario.role === "admin") badgeClass = "bg-danger"; 
-                if (usuario.role === "coach") badgeClass = "bg-primary"; 
 
                 // Formatear Fecha (DD/MM/AAAA)
                 const fechaOriginal = usuario.createdAt || usuario.birth_date || "";
@@ -57,17 +62,44 @@ async function listarUsuarios() {
                     }
                 }
 
+                let rolTexto = "Usuario";
+                let badgeClass = "activo"; 
+
+                if (usuario.role === "admin") {
+                    rolTexto = "Administrador";
+                    badgeClass = "inactivo"; 
+                }
+                if (usuario.role === "coach") {
+                    rolTexto = "Coach";
+                    badgeClass = "activo";
+                }
+
                 tr.innerHTML = `
                     <td>${usuario.id || usuario._id}</td>
                     <td>${usuario.full_name}</td>
-                    <td>${usuario.email}</td>
-                    <td><span class="badge ${badgeClass}">${usuario.role}</span></td>
-                    <td>${fechaFormateada}</td>
                     <td>
-                        <button class="btn btn-warning btn-sm me-1" onclick="cargarUsuarioParaEditar('${usuario.id || usuario._id}')">✏️ Editar</button>
-                        <button class="btn btn-danger btn-sm" onclick="eliminarUsuario('${usuario.id || usuario._id}')">🗑️ Eliminar</button>
+                        ${usuario.email}<br>
+                        <span class="estado ${badgeClass}">
+                            ${rolTexto}
+                        </span>
+                    </td>
+                    <td>
+                        <span class="estado activo">Activo</span><br>
+                        <small style="color: #6c757d;">${fechaFormateada}</small>
+                    </td>
+                    <td>
+                        <button onclick="cargarUsuarioParaEditar('${usuario.id || usuario._id}')"
+                            style="background:none;border:none;color:#007bff;font-weight:bold;cursor:pointer;">
+                            ✏️ Editar
+                        </button>
+
+                        <button onclick="eliminarUsuario('${usuario.id || usuario._id}')"
+                            style="background:none;border:none;color:#c5221f;font-weight:bold;cursor:pointer;margin-left:10px;">
+                            🗑️ Eliminar
+                        </button>
                     </td>
                 `;
+
                 tablaUsuariosBody.appendChild(tr);
             });
         } else {
@@ -101,7 +133,7 @@ window.cargarUsuarioParaEditar = async function(id) {
             rolSelect.value = usuario.role;
             
             document.getElementById("formTitulo").textContent = "Formulario Usuario (Editando ✏️)";
-            window.scrollTo({ top: 0, behavior: 'smooth' }); // Sube la pantalla suavemente al formulario
+            window.scrollTo({ top: 0, behavior: 'smooth' }); 
         }
     } catch (error) {
         mostrarMensaje("error", "Error al cargar los detalles del usuario.");
@@ -121,8 +153,13 @@ userForm.addEventListener("submit", async (e) => {
 
     if (!full_name || !email || !role) {
         mostrarMensaje("error", "Por favor completa todos los campos requeridos.");
-        if (!full_name) nombreInput.classList.add("is-invalid");
-        if (!email) correoInput.classList.add("is-invalid");
+        return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+        mostrarMensaje("error", "Ingresa un correo válido.");
         return;
     }
 
@@ -133,7 +170,6 @@ userForm.addEventListener("submit", async (e) => {
     if (!id) {
         if (!password || password.length < 8) {
             mostrarMensaje("error", "La contraseña es obligatoria y debe tener mínimo 8 caracteres para nuevos usuarios.");
-            passwordInput.classList.add("is-invalid");
             return;
         }
         datosUsuario.password = password;
@@ -145,8 +181,7 @@ userForm.addEventListener("submit", async (e) => {
             headers: {
                 "Authorization": `Bearer ${token}`,
                 "Content-Type": "application/json"
-            },
-            body: JSON.stringify(datosUsuario)
+            }
         });
 
         const data = await response.json();
@@ -201,7 +236,11 @@ function mostrarMensaje(tipo, mensaje) {
 function limpiarEstilos() {
     errorDiv.style.display = "none";
     exitoDiv.style.display = "none";
-    nombreInput.classList.remove("is-invalid");
-    correoInput.classList.remove("is-invalid");
-    passwordInput.classList.remove("is-invalid");
 }
+
+window.cancelarEdicion = function () {
+    userForm.reset();
+    userIdInput.value = "";
+    document.getElementById("formTitulo").textContent = "Formulario Usuario (Crear / Editar)";
+    limpiarEstilos();
+};

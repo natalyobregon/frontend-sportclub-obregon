@@ -15,11 +15,29 @@ const exitoDiv = document.querySelector(".mensaje-exito");
 
 const token = localStorage.getItem("token");
 
+// Validación inicial y redirección dinámica del botón inicio
 document.addEventListener("DOMContentLoaded", () => {
     if (!token) {
         window.location.href = "login.html";
         return;
     }
+
+    // CORRECCIÓN: Configurar dinámicamente el destino del botón "Inicio" según el rol guardado en la sesión
+    const userRaw = localStorage.getItem("user");
+    const btnInicio = document.getElementById("btnInicio");
+
+    if (userRaw && btnInicio) {
+        const usuarioSesion = JSON.parse(userRaw);
+        
+        if (usuarioSesion.role === "admin") {
+            btnInicio.href = "dashboard_admin.html";
+        } else if (usuarioSesion.role === "coach") {
+            btnInicio.href = "dashboard_coach.html";
+        } else {
+            btnInicio.href = "dashboard_usuario.html";
+        }
+    }
+
     cargarDatosPerfil();
 });
 
@@ -82,7 +100,16 @@ perfilForm.addEventListener("submit", async (e) => {
         const data = await response.json();
 
         if (response.ok) {
+
+            const userGuardado = JSON.parse(localStorage.getItem("user"));
+
+            if (userGuardado) {
+                userGuardado.full_name = fullName;
+                localStorage.setItem("user", JSON.stringify(userGuardado));
+            }
+
             mostrarMensaje("exito", data.message || "Perfil actualizado correctamente.");
+
         } else {
             mostrarMensaje("error", data.message || "Error al actualizar el perfil.");
         }

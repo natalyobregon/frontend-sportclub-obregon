@@ -14,6 +14,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // Seleccionar la etiqueta del saludo e inyectar el nombre real devuelto por la API
     const saludoCoach = document.getElementById("saludoCoach");
     if (saludoCoach && usuarioObjeto.full_name) {
-        saludoCoach.textContent = `¡Bienvenido/a, Coach ${usuarioObjeto.full_name}!`;
+        saludoCoach.textContent = `¡Bienvenido/a, Coach ${usuarioObjeto.full_name || "Entrenador"}!`;
     }
 });
+
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+    logoutBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        localStorage.clear();
+
+        window.location.href = "login.html";
+    });
+}

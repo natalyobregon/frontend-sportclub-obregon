@@ -6,15 +6,6 @@
     <title>Dashboard Coach - Club Deportivo</title>
     <link rel="stylesheet" href="../css/style_dashboard.css">
 
-    <script>
-        // Bloque de seguridad: Validar sesión activa antes de cargar el contenido
-        const token = localStorage.getItem("token");
-        const user = localStorage.getItem("user");
-
-        if (!token || !user) {
-            window.location.href = "login.html";
-        }
-    </script>
 </head>
 <body class="rol-coach">
 
@@ -27,13 +18,14 @@
             <a href="#">Alumnos</a>
             <a href="#">Clases</a>
             <a href="perfil.html">Mi Perfil</a>
-            <a href="login.html" style="color: #c5221f;" onclick="localStorage.clear();">Cerrar Sesión</a>
-        </nav> </header>
+            <a href="login.html" id="logoutBtn" style="color: #c5221f;" onclick="localStorage.clear();">Cerrar Sesión</a>
+        </nav>
+    </header>
 
     <main class="dashboard-contenido">
 
         <section class="dashboard-card">
-            <h2 id="saludoCoach">¡Bienvenido!</h2>
+            <h2 id="saludoCoach">¡Bienvenido/a!</h2>
         </section>
 
         <section class="clases-grid">

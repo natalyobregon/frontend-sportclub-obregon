@@ -67,15 +67,6 @@ registroForm.addEventListener('submit', async (e) => {
         return;
     }
 
-    // D. Contraseña segura (Debe incluir obligatoriamente letras y números)
-    const tieneLetras = /[a-zA-Z]/.test(password);
-    const tieneNumeros = /[0-9]/.test(password);
-    if (!tieneLetras || !tieneNumeros) {
-        mostrarError('La contraseña debe incluir tanto letras como números.');
-        passwordInput.classList.add('is-invalid'); // --- SE AGREGA: Borde rojo en password ---
-        return;
-    }
-
     // E. Las contraseñas deben coincidir
     if (password !== confirmPassword) {
         mostrarError('Las contraseñas no coinciden.');
