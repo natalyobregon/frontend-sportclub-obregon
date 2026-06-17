@@ -48,3 +48,62 @@ Durante el proceso se solicitaron explicaciones detalladas sobre conceptos, etiq
 Las decisiones finales respecto a la estructura del sistema, la organización de las páginas, el diseño visual y la implementación de las funcionalidades fueron tomadas personalmente, utilizando las recomendaciones de la IA como apoyo para mejorar la calidad del desarrollo.
 
 En conclusión, la inteligencia artificial fue utilizada como una herramienta de acompañamiento y aprendizaje, contribuyendo a resolver dudas, comprender mejores prácticas y optimizar el proceso de desarrollo sin reemplazar el trabajo ni la toma de decisiones del estudiante.
+
+## Prompts Adicionales Utilizados
+
+### Gestión de Usuarios (Administrador)
+
+Prompt:
+"Necesito implementar un módulo CRUD de usuarios para un dashboard de administrador utilizando JavaScript y consumo de API REST, incluyendo listar, crear, editar y eliminar usuarios."
+
+Uso:
+- Desarrollo del archivo admin.js.
+- Implementación de formularios de creación y edición.
+- Consumo de endpoints GET, POST, PUT y DELETE.
+- Validaciones de formularios y manejo de mensajes de éxito/error.
+
+### Perfil de Usuario
+
+Prompt:
+"¿Cómo puedo desarrollar una página de perfil que permita visualizar y actualizar los datos del usuario autenticado utilizando localStorage, JavaScript y una API REST?"
+
+Uso:
+- Desarrollo de perfil.html.
+- Implementación de carga de datos desde /api/auth/me.
+- Actualización de nombre y fecha de nacimiento.
+- Sincronización de datos actualizados en localStorage.
+
+---
+
+### Cambio de Contraseña
+
+Prompt:
+"Necesito implementar un formulario para cambio de contraseña conectado a una API REST, validando contraseña actual, nueva contraseña y confirmación."
+
+Uso:
+- Desarrollo del formulario de seguridad en perfil.html.
+- Validaciones frontend.
+- Consumo del endpoint PUT /api/auth/me/password.
+- Manejo de errores devueltos por la API.
+
+### Gestión de Roles y Navegación
+
+Prompt:
+"¿Cómo puedo redirigir dinámicamente a diferentes dashboards según el rol del usuario almacenado en localStorage?"
+
+Uso:
+- Redirección entre Dashboard Administrador.
+- Dashboard Coach.
+- Dashboard Usuario.
+- Configuración dinámica del botón Inicio en perfil.html.
+
+### Depuración y Corrección de Errores
+
+Prompt:
+"Ayúdame a identificar y corregir errores de JavaScript relacionados con fetch, localStorage, validaciones y consumo de API REST."
+
+Uso:
+- Corrección de errores de variables no definidas.
+- Corrección de payloads enviados al backend.
+- Resolución de errores HTTP 400.
+- Corrección de validaciones y sincronización de datos.

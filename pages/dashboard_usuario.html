@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Usuario - Club Deportivo</title>
     <link rel="stylesheet" href="../css/style_dashboard.css">
+
 </head>
 <body class="rol-usuario">
 
@@ -16,15 +17,15 @@
             <a href="#">Inicio</a>
             <a href="#">Mis Reservas</a>
             <a href="#">Clases</a>
-            <a href="#">Mi Perfil</a>
-            <a href="login.html" style="color: #c5221f;">Cerrar Sesión</a>
+            <a href="perfil.html">Mi Perfil</a>
+            <a href="login.html" style="color: #c5221f;" onclick="localStorage.removeItem('token');localStorage.removeItem('user');">Cerrar Sesión</a>
         </nav>
     </header>
 
     <main class="dashboard-contenido">
 
         <section class="dashboard-card">
-            <h2>¡Bienvenido, Javier!</h2>
+            <h2 id="saludoBienvenida">¡Bienvenido/a!</h2>
             <p>Continúa entrenando para alcanzar tus metas.</p>
         </section>
 
@@ -65,11 +66,22 @@
 
         <section class="dashboard-card">
             <h2>Mi Perfil Rápido</h2>
-            <p><strong>Nombre:</strong> Javier Morales</p>
-            <p><strong>Correo:</strong> javier@email.com</p>
-            <p><strong>Deporte favorito:</strong> Funcional</p>
+            <div style="margin-top: 15px; line-height: 1.8;">
+                <p><strong>Nombre:</strong> <span id="perfilRapidoNombre">Cargando...</span></p>
+                <p><strong>Correo:</strong> <span id="perfilRapidoCorreo">Cargando...</span></p>
+                <p>
+                    <strong>Rol de cuenta:</strong> 
+                    <span id="perfilRapidoRol" class="estado activo" style="font-weight: bold; margin-left: 5px;">user</span>
+                </p>
+            </div>
+            <div style="margin-top: 15px;">
+                <a href="perfil.html" style="display: inline-block; padding: 6px 12px; background-color: transparent; color: #6c757d; border: 1px solid #6c757d; border-radius: 4px; text-decoration: none; font-size: 14px; font-weight: bold;">⚙️ Ir a Gestión de Perfil</a>
+            </div>
         </section>
 
     </main>
+
+    <script src="../js/usuario.js"></script>
+
 </body>
 </html>

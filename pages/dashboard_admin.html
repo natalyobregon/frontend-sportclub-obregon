@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Administrador - Club Deportivo</title>
     <link rel="stylesheet" href="../css/style_dashboard.css">
+    
+
 </head>
 <body class="rol-admin">   
 
@@ -17,14 +19,54 @@
             <a href="#">Reportes</a>
             <a href="#">Configuración</a>
             <a href="#">Clases</a>
-            <a href="login.html" style="color: #c5221f;">Cerrar Sesión</a>
+            <a href="perfil.html">Mi Perfil</a>
+            <a href="login.html" style="color: #c5221f;" onclick="localStorage.removeItem('token');localStorage.removeItem('user');">Cerrar Sesión</a>
         </nav>
     </header>
 
     <main class="dashboard-contenido">
 
+        <div id="mensajeError" class="mensaje-error" style="display: none; padding: 10px; margin-bottom: 15px; background-color: #f8d7da; color: #721c24; border-radius: 4px;"></div>
+        <div id="mensajeExito" class="mensaje-exito" style="display: none; padding: 10px; margin-bottom: 15px; background-color: #d4edda; color: #155724; border-radius: 4px;"></div>
+
         <section class="dashboard-card">
-            <h2>¡Bienvenido, Juan!</h2>
+            <h2 id="saludoAdmin">¡Bienvenido!</h2>
+            <p class="text-muted" style="color: #6c757d; margin-top: 5px;">Módulo Gestión de Usuarios - Administra los usuarios del sistema</p>
+        </section>
+
+        <section class="dashboard-card">
+            <h2 id="formTitulo">Formulario Usuario (Crear / Editar)</h2>
+            <form id="userForm" style="margin-top: 15px;">
+                <input type="hidden" id="userId">
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                    <div>
+                        <label for="adminNombre" style="display: block; margin-bottom: 5px; font-weight: bold;">Nombre Completo *</label>
+                        <input type="text" id="adminNombre" placeholder="Ej. Juan Pérez" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                    </div>
+                    <div>
+                        <label for="adminCorreo" style="display: block; margin-bottom: 5px; font-weight: bold;">Email *</label>
+                        <input type="email" id="adminCorreo" placeholder="juan@correo.com" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                    </div>
+                    <div>
+                        <label for="adminRol" style="display: block; margin-bottom: 5px; font-weight: bold;">Rol *</label>
+                        <select id="adminRol" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; background-color: white;">
+                            <option value="user">user</option>
+                            <option value="coach">coach</option>
+                            <option value="admin">admin</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="adminPassword" style="display: block; margin-bottom: 5px; font-weight: bold;">Contraseña (Mínimo 8 caracteres)</label>
+                        <input type="password" id="adminPassword" placeholder="Solo para nuevos usuarios u opcional" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <button type="submit" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">💾 Guardar Usuario</button>
+                    <button type="button" onclick="cancelarEdicion()" style="padding: 10px 20px; background-color: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer; margin-left: 10px;">Cancelar</button>
+                </div>
+            </form>
         </section>
 
         <section class="clases-grid">
@@ -43,55 +85,21 @@
         </section>
 
         <section class="dashboard-card">
-            <h2>Control de Usuarios</h2>
+            <h2>Control y Lista de Usuarios</h2>
             <div class="tabla-contenedor">
                 <table class="dashboard-tabla">
                     <thead>
                         <tr>
-                            <th>Rut</th>
+                            <th>ID / Rut</th>
                             <th>Nombre Completo</th>
-                            <th>Rol</th>
-                            <th>Estado</th>
-                            <th>Fecha de Registro</th>
+                            <th>Email / Rol</th>
+                            <th>Estado / Fecha</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>12.345.678-9</td>
-                            <td>Juan Pérez Gómez</td>
-                            <td>Administrador</td>
-                            <td><span class="estado activo">Activo</span></td>
-                            <td>12/01/2025</td>
-                        </tr>
-                        <tr>
-                            <td>18.765.432-1</td>
-                            <td>Ana María Silva</td>
-                            <td>Coach</td>
-                            <td><span class="estado activo">Activo</span></td>
-                            <td>25/02/2025</td>
-                        </tr>
-                        <tr>
-                            <td>20.123.456-K</td>
-                            <td>Javier Morales Cid</td>
-                            <td>Usuario</td>
-                            <td><span class="estado activo">Activo</span></td>
-                            <td>10/03/2025</td>
-                        </tr>
-                        <tr>
-                            <td>15.987.654-3</td>
-                            <td>Pedro Urrutia Jara</td>
-                            <td>Coach</td>
-                            <td><span class="estado inactivo">Inactivo</span></td>
-                            <td>05/04/2025</td>
-                        </tr>
-                        <tr>
-                            <td>17.456.789-0</td>
-                            <td>María González Rojas</td>
-                            <td>Usuario</td>
-                            <td><span class="estado activo">Activo</span></td>
-                            <td>18/05/2025</td>
-                        </tr>
-                    </tbody>
+                    <tbody id="tablaUsuariosBody">
+                        <!-- Filas de usuarios se cargarán aquí dinámicamente -->
+                    </tbody>    
                 </table>
             </div>
         </section>
@@ -118,15 +126,7 @@
             </div>
         </section>
 
-        <section class="dashboard-card">
-            <h2>Configuración Rápida</h2>
-            <div class="botones-config">
-                <button class="btn-config">Crear Usuario</button>
-                <button class="btn-config">Editar Sistema</button>
-                <button class="btn-config">Configuración</button>
-            </div>
-        </section>
-
     </main>
+    <script src="../js/admin.js"></script>
 </body>
 </html>

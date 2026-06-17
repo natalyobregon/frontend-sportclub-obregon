@@ -13,7 +13,6 @@
 
     <link
         rel="stylesheet"
-        content="stylesheet"
         href="../css/style_registro.css">
 
 </head>
@@ -34,15 +33,15 @@
 
         </header>
 
-        <div class="mensaje-error">Las contraseñas no coinciden</div>
-        <div class="mensaje-exito">Usuario registrado correctamente</div>
+        <div class="mensaje-error"></div>
+        <div class="mensaje-exito"></div>
 
-        <div class="formulario">
+        <form id="registroForm" class="formulario">
 
             <div class="campo">
 
                 <label for="nombre">
-                    Nombre
+                    Nombre completo
                 </label>
 
                 <input
@@ -197,7 +196,7 @@
 
             </div>
 
-            <button>
+            <button type="submit">
 
                 Registrarme
 
@@ -213,10 +212,11 @@
 
             </div>
 
-        </div>
+        </form>
 
     </main>
 
+    <script src="../js/registro.js"></script>
 </body>
 
 </html>

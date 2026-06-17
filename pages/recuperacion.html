@@ -25,22 +25,23 @@
 
         <h2>Recuperar Contraseña</h2>
 
+        <div class="mensaje-error"></div>
+
         <div class="mensaje-exito"></div>
 
-        <div class="campo">
+        <form id="recuperacionForm">
 
-            <label for="correo">Correo</label>
+            <div class="campo">
+                <label for="correo">Correo</label>
+                <input type="email" id="id-correo" placeholder="Ingresa tu correo">
+            </div>
 
-            <input type="email" id="id-correo" placeholder="Ingresa tu correo">
+            <button type="submit" class="btn-login">
+                Enviar
+            </button>
 
-        </div>
-
-        <a href="#" class="btn-login" onclick="mostrarMensaje()">
-
-            Enviar
-
-        </a>
-
+        </form>
+        
         <div class="links">
 
             <a href="login.html">Volver al Login</a>
@@ -51,15 +52,33 @@
 
     <script>
 
-    function mostrarMensaje(){
+    const form = document.getElementById("recuperacionForm");
+    const correo = document.getElementById("id-correo");
 
-        var cajaExito = document.querySelector(".mensaje-exito");
+    const errorDiv = document.querySelector(".mensaje-error");
+    const exitoDiv = document.querySelector(".mensaje-exito");
 
-        cajaExito.innerText = "Se ha enviado un enlace de recuperación al correo ingresado.";
+    form.addEventListener("submit", (e) => {
 
-        cajaExito.style.display = "block";
+        e.preventDefault();
 
-    }
+        errorDiv.style.display = "none";
+        exitoDiv.style.display = "none";
+
+        const email = correo.value.trim();
+
+        if (!email) {
+            errorDiv.textContent = "Debes ingresar un correo.";
+            errorDiv.style.display = "block";
+            return;
+        }
+
+        exitoDiv.textContent =
+        "Se ha enviado un enlace de recuperación al correo ingresado.";
+
+        exitoDiv.style.display = "block";
+
+    });
 
     </script>
 

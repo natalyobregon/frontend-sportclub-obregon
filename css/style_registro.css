@@ -220,6 +220,8 @@ select:focus {
 .mensaje-error,
 .mensaje-exito {
 
+    display: none;
+
     padding: 12px;
 
     margin-bottom: 20px;
@@ -254,4 +256,8 @@ select:focus {
 
     color: #137333;
 
+}
+
+.is-invalid {
+    border: 2px solid #dc3545 !important;
 }
