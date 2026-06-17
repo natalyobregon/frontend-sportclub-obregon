@@ -18,7 +18,7 @@
             <a href="#">Mis Reservas</a>
             <a href="#">Clases</a>
             <a href="perfil.html">Mi Perfil</a>
-            <a href="login.html" style="color: #c5221f;" onclick="localStorage.clear();">Cerrar Sesión</a>
+            <a href="login.html" style="color: #c5221f;" onclick="localStorage.removeItem('token');localStorage.removeItem('user');">Cerrar Sesión</a>
         </nav>
     </header>
 
@@ -80,6 +80,8 @@
         </section>
 
     </main>
+
+    <script src="../js/usuario.js"></script>
 
 </body>
 </html>

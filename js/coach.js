@@ -11,6 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Convertir el string de localStorage a objeto JavaScript
     const usuarioObjeto = JSON.parse(userRaw);
 
+    if (usuarioObjeto.role !== "coach") {
+        window.location.href = "login.html";
+        return;
+    }
+
     // Seleccionar la etiqueta del saludo e inyectar el nombre real devuelto por la API
     const saludoCoach = document.getElementById("saludoCoach");
     if (saludoCoach && usuarioObjeto.full_name) {
@@ -24,7 +29,8 @@ if (logoutBtn) {
     logoutBtn.addEventListener("click", (e) => {
         e.preventDefault();
 
-        localStorage.clear();
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
 
         window.location.href = "login.html";
     });

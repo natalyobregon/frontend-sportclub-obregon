@@ -118,7 +118,13 @@ registroForm.addEventListener('submit', async (e) => {
             mostrarError(data.message || 'Error al registrar el usuario.');
             
             // --- SE AGREGA: Si el correo ya existe, es buena práctica pintar esa casilla de rojo
-            if (data.message && data.message.toLowerCase().includes('email') || data.message.toLowerCase().includes('correo')) {
+            if (
+                data.message &&
+                (
+                    data.message.toLowerCase().includes('email') ||
+                    data.message.toLowerCase().includes('correo')
+                )
+            ) {
                 correoInput.classList.add('is-invalid');
             }
         }

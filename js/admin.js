@@ -176,15 +176,19 @@ userForm.addEventListener("submit", async (e) => {
     }
 
     try {
-        const response = await fetch(url, {
-            method: metodo,
-            headers: {
-                "Authorization": `Bearer ${token}`,
-                "Content-Type": "application/json"
-            }
-        });
+    const response = await fetch(url, {
+        method: metodo,
+        headers: {
+            "Authorization": `Bearer ${token}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(datosUsuario)
+    });
 
         const data = await response.json();
+
+        console.log("STATUS:", response.status);
+        console.log("RESPUESTA:", data);
 
         if (response.ok) {
             mostrarMensaje("exito", id ? "Usuario actualizado con éxito." : "Usuario creado con éxito.");

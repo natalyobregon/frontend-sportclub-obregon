@@ -54,7 +54,10 @@ async function cargarDatosPerfil() {
 
         const data = await response.json();
 
-        if (response.ok && data.ok === true) {
+        console.log("STATUS PERFIL:", response.status);
+        console.log("RESPUESTA PERFIL:", data);
+
+        if(response.ok && data.ok === true) {
             const usuario = data.data;
             nombreInput.value = usuario.full_name;
             correoInput.value = usuario.email;
@@ -154,10 +157,13 @@ passwordForm.addEventListener("submit", async (e) => {
                 "Authorization": `Bearer ${token}`,
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ current_password: currentPassword, new_password: newPassword })
+            body: JSON.stringify({ current_password: currentPassword, new_password: newPassword, confirm_password: confirmPassword })
         });
 
         const data = await response.json();
+
+        console.log("STATUS PASSWORD:", response.status);
+        console.log("RESPUESTA PASSWORD:", data);
 
         if (response.ok) {
             mostrarMensaje("exito", data.message || "Contraseña actualizada con éxito.");

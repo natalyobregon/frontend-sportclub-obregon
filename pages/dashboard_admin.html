@@ -19,7 +19,8 @@
             <a href="#">Reportes</a>
             <a href="#">Configuración</a>
             <a href="#">Clases</a>
-            <a href="login.html" style="color: #c5221f;" onclick="localStorage.clear();">Cerrar Sesión</a>
+            <a href="perfil.html">Mi Perfil</a>
+            <a href="login.html" style="color: #c5221f;" onclick="localStorage.removeItem('token');localStorage.removeItem('user');">Cerrar Sesión</a>
         </nav>
     </header>
 
@@ -126,27 +127,6 @@
         </section>
 
     </main>
-
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-
-        const userRaw = localStorage.getItem("user");
-
-        if(userRaw){
-            const usuario = JSON.parse(userRaw);
-
-            const saludoAdmin = document.getElementById("saludoAdmin");
-
-            if(saludoAdmin){
-                saludoAdmin.textContent =
-                `¡Bienvenido/a, ${usuario.full_name || "Administrador"}!`;
-                }
-            }
-        }
-
-    );
-    </script>
-
     <script src="../js/admin.js"></script>
 </body>
 </html>
